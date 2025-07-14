@@ -1,4 +1,5 @@
 import ccxt # (unified API wrapper for many exchanges)
+from data_fetch.mock_exchange import MockExchange
 import os
 from dotenv import load_dotenv
 
@@ -8,12 +9,7 @@ API_KEY = os.getenv("API_KEY")
 API_SECRET = os.getenv("API_SECRET")
 API_PASSPHRASE = os.getenv("API_PASSPHRASE")
 
-exchange = ccxt.coinbase({
-    'apiKey': API_KEY,
-    'secret': API_SECRET,
-    'password': API_PASSPHRASE,
-    'enableRateLimit': True,
-})
+exchange = MockExchange()
 
 def get_price(symbol='SHIB/USDT'):
     try:
