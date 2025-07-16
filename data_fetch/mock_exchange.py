@@ -6,12 +6,12 @@ class MockExchange:
         price = round(random.uniform(0.00001, 0.00005), 8)
         return {'last': price}
 
-    def create_order(self, symbol, type, side, amount, price=None):
+    def create_order(self, symbol, order_type, side, amount, price=None):
         # Simulate order creation
         return {
             'id': random.randint(100000, 999999),
             'symbol': symbol,
-            'type': type,
+            'type': order_type,
             'side': side,
             'amount': amount,
             'price': price or self.fetch_ticker(symbol)['last'],

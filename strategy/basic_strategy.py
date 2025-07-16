@@ -1,11 +1,12 @@
 # BUY/SELL/HOLD
+from utils.enums import OrderSide
 
 def basic_threshold_strategy(price, buy_threshold, sell_threshold):
     if price is None:
-        return 'hold'
+        return OrderSide.HOLD
     if price < buy_threshold:
-        return 'buy'
+        return OrderSide.BUY
     elif price > sell_threshold:
-        return 'sell'
+        return OrderSide.SELL
     else:
-        return 'hold'
+        return OrderSide.HOLD

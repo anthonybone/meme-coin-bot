@@ -9,12 +9,13 @@ API_KEY = os.getenv("API_KEY")
 API_SECRET = os.getenv("API_SECRET")
 API_PASSPHRASE = os.getenv("API_PASSPHRASE")
 
-exchange = MockExchange()
+class Fetcher:
+    def __init__(self, exchange):
+        self.exchange = exchange
 
-def get_price(symbol='SHIB/USDT'):
-    try:
-        ticker = exchange.fetch_ticker(symbol)
-        return ticker['last']
-    except Exception as e:
-        print(f"[ERROR] Fetching price failed: {e}")
-        return None
+    def get_price(self, symbol='SHIB/USDT'):
+        try:
+            ticker = self.exchange.fetch_ticker(symbol)
+            return ticker['last']
+        except Exception as e:
+            print(f"[ERROR] Fetching price failed: {e}")
