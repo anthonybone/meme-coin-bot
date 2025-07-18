@@ -1,0 +1,3 @@
+{"message": "[DECISION] SHIB/USDT price: 4.558e-05; action: SELL"}
+{"message": "Sell order placed: {'id': 655435, 'symbol': 'SHIB/USDT', 'type': <OrderType.MARKET: 'MARKET'>, 'side': <OrderSide.SELL: 'SELL'>, 'amount': 1234.0, 'price': 3.408e-05, 'status': 'mocked'}"}
+{"message": "Placing sell order for SHIB/USDT at 4.558e-05 with amount 1234.0"}
