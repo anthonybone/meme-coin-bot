@@ -19,6 +19,11 @@ class TestMarketScanner(unittest.TestCase):
         self.assertIn('MOON/USDT', tickers)
         self.assertIn('RUG/USDT', tickers)
 
+    def test_get_all_tickers_not_empty(self):
+        tickers = self.scanner.get_all_tickers()
+        self.assertTrue(len(tickers) > 0)
+
+
     # Add more tests for your scanner logic as needed
 
 if __name__ == '__main__':
