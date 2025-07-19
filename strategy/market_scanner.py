@@ -1,5 +1,5 @@
 mock_tickers = [
-    'SHIB/USDT',
+    'SHIB/USD',
     'DOGE/USDT',
     'PEPE/USDT',
     'FLOKI/USDT',

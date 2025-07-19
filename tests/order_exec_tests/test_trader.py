@@ -25,9 +25,9 @@ class TestTrader(unittest.TestCase):
 
     def test_buy_market_order_success(self):
         self.mock_client.create_order.return_value = {'id': 1, 'status': 'filled'}
-        result = self.trader.buy('SHIB/USDT', 100)
+        result = self.trader.buy('SHIB/USD', 100)
         self.mock_client.create_order.assert_called_once_with(
-            symbol='SHIB/USDT',
+            symbol='SHIB/USD',
             order_type=DummyOrderType.MARKET,
             side=DummyOrderSide.BUY,
             amount=100,
@@ -37,9 +37,9 @@ class TestTrader(unittest.TestCase):
 
     def test_buy_limit_order_success(self):
         self.mock_client.create_order.return_value = {'id': 2, 'status': 'open'}
-        result = self.trader.buy('SHIB/USDT', 50, price=0.00001)
+        result = self.trader.buy('SHIB/USD', 50, price=0.00001)
         self.mock_client.create_order.assert_called_once_with(
-            symbol='SHIB/USDT',
+            symbol='SHIB/USD',
             order_type=DummyOrderType.LIMIT,
             side=DummyOrderSide.BUY,
             amount=50,
@@ -48,29 +48,29 @@ class TestTrader(unittest.TestCase):
         self.assertEqual(result, {'id': 2, 'status': 'open'})
 
     def test_buy_invalid_amount(self):
-        result = self.trader.buy('SHIB/USDT', 0)
+        result = self.trader.buy('SHIB/USD', 0)
         self.assertIsNone(result)
-        result = self.trader.buy('SHIB/USDT', -5)
+        result = self.trader.buy('SHIB/USD', -5)
         self.assertIsNone(result)
-        result = self.trader.buy('SHIB/USDT', 'bad')
+        result = self.trader.buy('SHIB/USD', 'bad')
         self.assertIsNone(result)
 
     def test_buy_invalid_price(self):
-        result = self.trader.buy('SHIB/USDT', 10, price=-1)
+        result = self.trader.buy('SHIB/USD', 10, price=-1)
         self.assertIsNone(result)
-        result = self.trader.buy('SHIB/USDT', 10, price='bad')
+        result = self.trader.buy('SHIB/USD', 10, price='bad')
         self.assertIsNone(result)
 
     def test_buy_exception(self):
         self.mock_client.create_order.side_effect = Exception("API error")
-        result = self.trader.buy('SHIB/USDT', 10)
+        result = self.trader.buy('SHIB/USD', 10)
         self.assertIsNone(result)
 
     def test_sell_market_order_success(self):
         self.mock_client.create_order.return_value = {'id': 3, 'status': 'filled'}
-        result = self.trader.sell('SHIB/USDT', 100)
+        result = self.trader.sell('SHIB/USD', 100)
         self.mock_client.create_order.assert_called_once_with(
-            symbol='SHIB/USDT',
+            symbol='SHIB/USD',
             order_type=DummyOrderType.MARKET,
             side=DummyOrderSide.SELL,
             amount=100,
@@ -80,9 +80,9 @@ class TestTrader(unittest.TestCase):
 
     def test_sell_limit_order_success(self):
         self.mock_client.create_order.return_value = {'id': 4, 'status': 'open'}
-        result = self.trader.sell('SHIB/USDT', 50, price=0.00002)
+        result = self.trader.sell('SHIB/USD', 50, price=0.00002)
         self.mock_client.create_order.assert_called_once_with(
-            symbol='SHIB/USDT',
+            symbol='SHIB/USD',
             order_type=DummyOrderType.LIMIT,
             side=DummyOrderSide.SELL,
             amount=50,
@@ -91,20 +91,20 @@ class TestTrader(unittest.TestCase):
         self.assertEqual(result, {'id': 4, 'status': 'open'})
 
     def test_sell_invalid_amount(self):
-        result = self.trader.sell('SHIB/USDT', 0)
+        result = self.trader.sell('SHIB/USD', 0)
         self.assertIsNone(result)
-        result = self.trader.sell('SHIB/USDT', -5)
+        result = self.trader.sell('SHIB/USD', -5)
         self.assertIsNone(result)
-        result = self.trader.sell('SHIB/USDT', 'bad')
+        result = self.trader.sell('SHIB/USD', 'bad')
         self.assertIsNone(result)
 
     def test_sell_invalid_price(self):
-        result = self.trader.sell('SHIB/USDT', 10, price=-1)
+        result = self.trader.sell('SHIB/USD', 10, price=-1)
         self.assertIsNone(result)
-        result = self.trader.sell('SHIB/USDT', 10, price='bad')
+        result = self.trader.sell('SHIB/USD', 10, price='bad')
         self.assertIsNone(result)
 
     def test_sell_exception(self):
         self.mock_client.create_order.side_effect = Exception("API error")
-        result = self.trader.sell('SHIB/USDT', 10)
+        result = self.trader.sell('SHIB/USD', 10)
         self.assertIsNone(result)

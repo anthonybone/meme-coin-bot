@@ -10,7 +10,7 @@ class MockExchange:
         Simulates fetching the latest ticker price for a given symbol.
 
         Args:
-            symbol (str): The trading pair symbol (e.g., 'SHIB/USDT').
+            symbol (str): The trading pair symbol (e.g., 'SHIB/USD').
 
         Returns:
             dict: A dictionary with the latest price under the 'last' key.

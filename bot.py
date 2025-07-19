@@ -4,7 +4,8 @@ import os
 from data_fetch.fetcher import Fetcher
 from strategy.basic_strategy import basic_threshold_strategy
 from order_exec.trader import Trader
-from data_fetch.mock_exchange import MockExchange
+# from data_fetch.mock_exchange import MockExchange
+from data_fetch.coinbase_exchange import CoinbaseExchange
 from utils.enums import OrderSide
 import logging
 from pythonjsonlogger import jsonlogger
@@ -34,13 +35,18 @@ def main():
     amount = args.amount if args.amount is not None else float(os.getenv(
         "TRADE_AMOUNT", 1000))
     
-    # Initialize the mock exchange client and fetcher
-    exchange_client = MockExchange()
+    # Initialize the exchange client and fetcher
+    # exchange_client = MockExchange()
+    exchange_client = CoinbaseExchange(
+        api_key=os.getenv("COINBASE_API_KEY"),
+        secret=os.getenv("COINBASE_API_SECRET"),
+        password=os.getenv("COINBASE_API_PASSWORD")
+    )
     fetcher = Fetcher(exchange_client)
     trader = Trader(exchange_client)
 
     # Define the trading symbol and thresholds
-    symbol = 'SHIB/USDT'
+    symbol = 'BTC/USD'
     buy_threshold = float(os.getenv("BUY_THRESHOLD", 0.000008))
     sell_threshold = float(os.getenv("SELL_THRESHOLD", 0.000012))
 

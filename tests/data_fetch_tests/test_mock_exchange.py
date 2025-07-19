@@ -6,7 +6,7 @@ class TestMockExchange(unittest.TestCase):
         self.exchange = MockExchange()
 
     def test_fetch_ticker_returns_last(self):
-        symbol = 'SHIB/USDT'
+        symbol = 'SHIB/USD'
         ticker = self.exchange.fetch_ticker(symbol)
         self.assertIn('last', ticker)
         self.assertIsInstance(ticker['last'], float)
@@ -15,13 +15,13 @@ class TestMockExchange(unittest.TestCase):
 
     def test_create_order_market(self):
         order = self.exchange.create_order(
-            symbol='SHIB/USDT',
+            symbol='SHIB/USD',
             order_type='market',
             side='buy',
             amount=100
         )
         self.assertIn('id', order)
-        self.assertEqual(order['symbol'], 'SHIB/USDT')
+        self.assertEqual(order['symbol'], 'SHIB/USD')
         self.assertEqual(order['type'], 'market')
         self.assertEqual(order['side'], 'buy')
         self.assertEqual(order['amount'], 100)
