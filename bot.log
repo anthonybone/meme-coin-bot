@@ -1,3 +1,13 @@
-{"message": "[DECISION] SHIB/USDT price: 4.558e-05; action: SELL"}
-{"message": "Sell order placed: {'id': 655435, 'symbol': 'SHIB/USDT', 'type': <OrderType.MARKET: 'MARKET'>, 'side': <OrderSide.SELL: 'SELL'>, 'amount': 1234.0, 'price': 3.408e-05, 'status': 'mocked'}"}
-{"message": "Placing sell order for SHIB/USDT at 4.558e-05 with amount 1234.0"}
+{"message": "[DECISION] SHIB/USD price: 4.558e-05; action: SELL"}
+{"message": "Sell order placed: {'id': 655435, 'symbol': 'SHIB/USD', 'type': <OrderType.MARKET: 'MARKET'>, 'side': <OrderSide.SELL: 'SELL'>, 'amount': 1234.0, 'price': 3.408e-05, 'status': 'mocked'}"}
+{"message": "Placing sell order for SHIB/USD at 4.558e-05 with amount 1234.0"}
+{"message": "[DECISION] SHIB/USD price: None; action: HOLD"}
+{"message": "Holding position for SHIB/USD"}
+{"message": "[DECISION] SHIB/USD price: None; action: HOLD"}
+{"message": "Holding position for SHIB/USD"}
+{"message": "[DECISION] SHIB/USD price: 1.465e-05; action: SELL"}
+{"message": "Sell order failed: 'OrderSide' object has no attribute 'upper'"}
+{"message": "Placing sell order for SHIB/USD at 1.465e-05 with amount 2000.0"}
+{"message": "[DECISION] BTC/USD price: 118008.1; action: SELL"}
+{"message": "Sell order failed: 'OrderSide' object has no attribute 'upper'"}
+{"message": "Placing sell order for BTC/USD at 118008.1 with amount 2000.0"}

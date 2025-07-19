@@ -5,7 +5,7 @@ This bot uses a mock exchange and a basic threshold strategy to decide when to b
 
 ## Features
 
-- Fetches the latest price for a configured symbol (default: `SHIB/USDT`)
+- Fetches the latest price for a configured symbol (default: `SHIB/USD`)
 - Makes buy/sell/hold decisions based on configurable price thresholds
 - Simulates trades using a mock exchange (no real funds involved)
 - Configurable trade amount via environment variable or CLI argument
